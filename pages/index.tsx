@@ -1,14 +1,18 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import { ShopLayout } from '../components/layouts'
+import { Card, CardActionArea, CardMedia, Grid, Typography } from '@mui/material'
+import { initialData } from '../database/products'
+import ProductList from '../components/products/ProductList'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <>
-      <h1>Ecomerce Adso</h1>
-    </>
+    <ShopLayout title={'Ecomerce Sena - Home'} pageDescription={'Encuentra los mejores productos para tu pc'}>
+
+      <Typography variant="h1" component={"h1"}>Tienda</Typography>
+      <Typography variant='h2' sx={{mb: 1}}>articulos</Typography>
+     
+      <ProductList products={initialData.products as any}/>
+
+    </ShopLayout>
   )
 }
